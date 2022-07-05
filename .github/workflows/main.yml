@@ -22,7 +22,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: artifact
-          path: target/Demo3-0.0.1-SNAPSHOT.jar
+          path: target/Demo3.jar
           #           path: target/jar-file.jar
 
   deploy:
@@ -46,4 +46,4 @@ jobs:
           environment_name: Demo3-env
           version_label: ${{github.SHA}}
           region: eu-central-1
-          deployment_package: Demo3-0.0.1-SNAPSHOT.jar
+          deployment_package: Demo3.jar
