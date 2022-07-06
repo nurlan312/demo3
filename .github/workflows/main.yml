@@ -2,7 +2,7 @@ name: Deployment
 on:
   push:
     branches:
-      - master
+       - master
 #   pull_request:
 #     branches:
 #       - main
@@ -56,4 +56,4 @@ jobs:
           environment_name: Demo3-env
           version_label: ${{github.SHA}}
           region: eu-central-1
-          deployment_package: Demo3-0.0.1-SNAPSHOT.jar
+          deployment_package: target/Demo3-0.0.1-SNAPSHOT.jar
