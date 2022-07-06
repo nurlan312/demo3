@@ -1,4 +1,4 @@
-name: CI part
+name: Deployment 
 on:
   push:
     branches:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: CI part
     runs-on: ubuntu-latest
     steps:
       - name: Proverka repository
@@ -20,16 +20,16 @@ jobs:
         with:
           java-version: '17'
           
-      - name: Cache Maven packages
-          #This action allows caching dependencies and build outputs to improve workflow execution time.
-        uses: actions/cache@v1
-        with:
-            path: ~/.m2
-            key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-            restore-keys: ${{ runner.os }}-m2
-            #Run Tests
-      - name: Run Tests
-        run: mvn -B test
+#       - name: Cache Maven packages
+#           #This action allows caching dependencies and build outputs to improve workflow execution time.
+#         uses: actions/cache@v1
+#         with:
+#             path: ~/.m2
+#             key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+#             restore-keys: ${{ runner.os }}-m2
+#             #Run Tests
+#       - name: Run Tests
+#         run: mvn -B test
         
       - name: Build with Maven
         run: mvn -B package -DskipTests --file pom.xml
